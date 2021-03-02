@@ -1,0 +1,53 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+html,
+body {
+  /* @apply bg-gray-900 text-white; */
+  background-color: rgba(236, 236, 236, 1);
+}
+
+#content-wrap {
+  top: 7.25rem;
+}
+
+.btn-tbl-cancel {
+  @apply border bg-gray-100 hover:bg-white border border-gray-200 hover:border-gray-200 hover:shadow-sm focus:border-red-300 focus:outline-none text-xs px-4 py-1;
+}
+.btn-tbl-save {
+  @apply border bg-gray-100 hover:bg-white border border-gray-200 hover:border-gray-200 hover:shadow-sm focus:border-blue-300 focus:outline-none text-xs px-4 py-1;
+}
+.btn-tbl-add {
+  @apply font-bold bg-gray-100 hover:bg-white border border-gray-200 hover:border-gray-200 hover:shadow-sm focus:border-gray-400 text-gray-500 focus:text-gray-600 focus:outline-none px-8 py-2;
+}
+
+.input-normal {
+  @apply px-2 py-1 border hover:border-gray-300 focus:border-blue-500;
+}
+
+/* Write your own custom component styles here */
+.btn-blue {
+  @apply px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-600;
+}
+
+pre {
+  font-size: .75rem;
+  line-height: 1.3;
+}
+
+.capslabel {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
