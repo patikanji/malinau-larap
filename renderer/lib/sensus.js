@@ -117,6 +117,8 @@ export const Sensus = {
 
   pendapatanHasilHutan: [],
 
+  pendapatanHasilBerburu: [],
+
   pendapatanBudidayaIkan: [],
 
 	pendapatanIkanTangkapan: [],
@@ -275,6 +277,7 @@ export const PendapatanHasilHutan =  {
   produk: '',
   satuan: 'kg',
   dipakai: 0, keterangan: '',
+  dimakan: 0, untukObat: 0, untukAdat: 0, untukTernak: 0, lainnya: 0,
   dijual: 0,
   nilaiPerTahun: 0,
 }
@@ -283,6 +286,7 @@ export const PendapatanHasilBerburu =  {
   produk: '',
   satuan: 'kg',
   dipakai: 0, keterangan: '',
+  dimakan: 0, untukObat: 0, untukAdat: 0, untukTernak: 0, lainnya: 0,
   dijual: 0,
   nilaiPerTahun: 0,
 }
@@ -291,6 +295,7 @@ export const PendapatanBudidayaIkan =  {
   jenis: '',
   satuan: 'kg',
   dipakai: 0, keterangan: '',
+  dimakan: 0, untukObat: 0, untukAdat: 0, untukTernak: 0, lainnya: 0,
   dijual: 0,
   nilaiPerTahun: 0,
 }
@@ -298,6 +303,7 @@ export const PendapatanIkanTangkapan =  {
   jenis: '',
   satuan: 'kg',
   dipakai: 0, keterangan: '',
+  dimakan: 0, untukObat: 0, untukAdat: 0, untukTernak: 0, lainnya: 0,
   dijual: 0,
   nilaiPerTahun: 0,
 }

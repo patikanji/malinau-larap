@@ -51,7 +51,7 @@ const Input = ({ model, path, setter, flag = false, disabled = false, numeric=fa
     }
 
     if (numeric && isNaN(newVal)) {
-      e.target.value = ''
+      e.target.value = '0'
     } else {
       e.target.value = '' + newVal
     }
@@ -76,7 +76,7 @@ const Input = ({ model, path, setter, flag = false, disabled = false, numeric=fa
   // value={theValue ? theValue : local}
   // onBlur={doChange}
   return <input
-    type="text"
+    type={numeric ? 'number' : 'text'}
     disabled={disabled}
     value={theValue ? theValue : local}
     className={theStyle}

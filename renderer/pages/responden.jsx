@@ -11,10 +11,11 @@ import { decimal, parseGender, parseHubungan } from '../lib/utils'
 import ButtonDeleteRow from '../components/ButtonDeleteRow'
 import { getDataFromJsonFile } from '../lib/utils'
 
-import SectionPendapatanHasilHutan from '../components/PendapatanHasilHutan'
+import SectionPendapatanHasilHutan from '../components/SectionPendapatanHasilHutan'
 import SectionPendapatanBudidayaIkan from '../components/SectionPendapatanBudidayaIkan'
 import SectionPendapatanIkanTangkapan from '../components/SectionPendapatanIkanTangkapan'
 import SectionKejadianPenyakit from '../components/SectionKejadianPenyakit'
+import SectionPendapatanHasilBerburu from '../components/SectionPendapatanHasilBerburu'
 
 const ipcRenderer = electron.ipcRenderer || false
 
@@ -84,9 +85,6 @@ const Responden = () => {
   const [fmPendapatanMenyewakanTanah, setFmPendapatanMenyewakanTanah] = useState(null)
   const [fmPendapatanMenyewakanBangunan, setFmPendapatanMenyewakanBangunan] = useState(null)
   const [fmPendapatanBagihasilPertanian, setFmPendapatanBagihasilPertanian] = useState(null)
-  const [fmPendapatanHasilHutan, setFmPendapatanHasilHutan] = useState(null)
-  const [fmPendapatanBudidayaIkan, setFmPendapatanBudidayaIkan] = useState(null)
-  const [fmPendapatanIkanTangkapan, setFmPendapatanIkanTangkapan] = useState(null)
   const [fmKejadianPenyakit, setFmKejadianPenyakit] = useState(null)
   const [fmPutusSekolah, setFmPutusSekolah] = useState(null)
   const [fmProgram, setFmProgram] = useState(null)
@@ -1023,22 +1021,6 @@ const Responden = () => {
 
 
 
-
-          {/* <div className="h-96 -mx-6 bg-fixed" style="background-image: url(/images/1280-182474476-lion.jpg)"></div> */}
-          <div className="flex flex-row h-96 my-80 bg-fixed bg-cover bg-indigo-50" style={{backgroundImage: `url(/images/${getPhoto()})`}}>
-            <div className="w-24 bg-white flex-0"></div>
-            <div className="flex-grow p-8">
-              <div className="h-full border-8 border-white border-opacity-75"></div>
-            </div>
-            <div className="w-24 bg-white flex-0"></div>
-          </div>
-          {/* <div className="h-96 -mx-6 bg-green-100"></div> */}
-
-
-
-
-
-
           {/* belanja */}
           <div className="bg-white text-sm text-gray-700">
             <div className="p-6 antialiased">
@@ -1587,6 +1569,9 @@ const Responden = () => {
 
           {/* pendapatan hasil hutan */}
           <SectionPendapatanHasilHutan resdata={resdata} setResdata={setResdata} flagger={flagger} />
+
+          {/* pendapatan hasil berburu */}
+          <SectionPendapatanHasilBerburu resdata={resdata} setResdata={setResdata} flagger={flagger} />
 
           {/* pendapatan ikan budidaya */}
           <SectionPendapatanBudidayaIkan resdata={resdata} setResdata={setResdata} flagger={flagger} />
