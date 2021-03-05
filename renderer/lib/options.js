@@ -122,6 +122,8 @@ export const optRentan = [
 export const optLingkungan = [
   ['Daerah kumuh', 'Daerah kumuh'],
   ['Bantaran sungai', 'Bantaran sungai'],
+  ['Perbukitan', 'Perbukitan'],
+  ['Pinggir hutan', 'Pinggir hutan'],
   ['Daerah pasang-surut', 'Daerah pasang-surut'],
 ]
 export const optKonstruksi = [
