@@ -775,17 +775,19 @@ const Responden = () => {
                       <td className="border-l border-white border-opacity-50 p-2">Jenis</td>
                       <td className="border-l border-white border-opacity-50 p-2">Lahan</td>
                       <td className="border-l border-white border-opacity-50 p-2">Tegakan</td>
-                      <td className="border-l border-white border-opacity-50 p-2">Sudah panen</td>
+                      <td className="border-l border-white border-opacity-50 p-2">Rp Tegakan</td>
+                      <td className="border-l border-white border-opacity-50 p-2">Rp Panen</td>
                       <td className="border-l border-white border-opacity-50 p-2">Sejak</td>
                       <td width="60" className="border-l border-white border-opacity-50 p-2 pr-3">Action</td>
                     </tr>
-                    {resdata?.tanaman.map(({jenis, lahan, tegakan, panen, sejak}, index) => (
+                    {resdata?.tanaman.map(({jenis, lahan, tegakan, panen, nilaiTegakan, nilaiPanen, sejak}, index) => (
                     <tr key={`${jenis}-${index}`} className="hover:bg-gray-50 border-b border-gray-100">
                       <td className="p-2 pl-3">{index +1}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{jenis}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{lahan}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{tegakan}</td>
-                      <td className="border-l border-gray-100 border-opacity-75 p-2">{panen}</td>
+                      <td className="border-l border-gray-100 border-opacity-75 p-2">{nilaiTegakan}</td>
+                      <td className="border-l border-gray-100 border-opacity-75 p-2">{nilaiPanen}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{sejak}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2 px-3">
                         <ButtonDeleteRow onClik={e => {
@@ -809,18 +811,26 @@ const Responden = () => {
                       <label className="capslabel text-gray-500">Jenis</label>
                       <Input flag={flagger} numeric={false} model={fmTanaman} setter={setFmTanaman} path={['jenis']} style="light"/>
                     </div>
-                    <div className="w-20 flex flex-col mr-4">
+                    <div className="w-16 flex flex-col mr-4">
                       <label className="capslabel text-gray-500">Lahan</label>
                       <Input flag={flagger} numeric={false} model={fmTanaman} setter={setFmTanaman} path={['lahan']} style="light"/>
                     </div>
-                    <div className="w-20 flex flex-col mr-4">
+                    <div className="w-16 flex flex-col mr-4">
                       <label className="capslabel text-gray-500">Tegakan</label>
                       <Input flag={flagger} numeric={false} model={fmTanaman} setter={setFmTanaman} path={['tegakan']} style="light"/>
                     </div>
-                    <div className="w-20s flex flex-col mr-4">
+                    <div className="w-20 flex flex-col mr-4">
+                      <label className="capslabel text-gray-500">Rp Tegakan</label>
+                      <Input flag={flagger} numeric={false} model={fmTanaman} setter={setFmTanaman} path={['nilaiTegakan']} style="light"/>
+                    </div>
+                    <div className="w-20 flex flex-col mr-4">
+                      <label className="capslabel text-gray-500">Rp Panen</label>
+                      <Input flag={flagger} numeric={false} model={fmTanaman} setter={setFmTanaman} path={['nilaiPanen']} style="light"/>
+                    </div>
+                    {/* <div className="w-20s flex flex-col mr-4">
                       <label className="capslabel text-gray-500">Panen</label>
                       <Select flag={flagger} options={options.optPernah} model={fmTanaman} setter={setFmTanaman} path={['panen']} style="light"/>
-                    </div>
+                    </div> */}
                     <div className="w-20 flex flex-col mr-4">
                       <label className="capslabel text-gray-500">Sejak</label>
                       <Input flag={flagger} numeric={false} model={fmTanaman} setter={setFmTanaman} path={['sejak']} style="light"/>
@@ -945,9 +955,10 @@ const Responden = () => {
                       <td className="border-l border-white border-opacity-50 p-2">Dipakai</td>
                       <td className="border-l border-white border-opacity-50 p-2">Dijual</td>
                       <td className="border-l border-white border-opacity-50 p-2">Hasil per tahun</td>
+                      <td className="border-l border-white border-opacity-50 p-2">Nilai Aset</td>
                       <td width="60" className="border-l border-white border-opacity-50 p-2 pr-3">Action</td>
                     </tr>
-                    {resdata?.hewanTernak.map(({jenis, sejak, dipakai, dijual, nilaiPerTahun}, index) => (
+                    {resdata?.hewanTernak.map(({jenis, sejak, dipakai, dijual, nilaiPerTahun, nilaiAset}, index) => (
                     <tr key={`${jenis}-${index}`} className="hover:bg-gray-50 border-b border-gray-100">
                       <td className="p-2 pl-3">{index +1}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{jenis}</td>
@@ -955,6 +966,7 @@ const Responden = () => {
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{dipakai}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{dijual}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2">{decimal(nilaiPerTahun)}</td>
+                      <td className="border-l border-gray-100 border-opacity-75 p-2">{decimal(nilaiAset)}</td>
                       <td className="border-l border-gray-100 border-opacity-75 p-2 px-3">
                         <ButtonDeleteRow onClik={e => {
                           let array = [...resdata?.hewanTernak]
@@ -989,9 +1001,13 @@ const Responden = () => {
                       <label className="capslabel text-gray-500">Dijual</label>
                       <Input flag={flagger} numeric={false} model={fmHewanTernak} setter={setFmHewanTernak} path={['dijual']} style="light"/>
                     </div>
-                    <div className="w-24 flex flex-col">
+                    <div className="w-24 flex flex-col mr-4">
                       <label className="capslabel text-gray-500">Hasil per tahun</label>
                       <Input flag={flagger} numeric={true} model={fmHewanTernak} setter={setFmHewanTernak} path={['nilaiPerTahun']} style="light"/>
+                    </div>
+                    <div className="w-24 flex flex-col">
+                      <label className="capslabel text-gray-500">Nilai aset</label>
+                      <Input flag={flagger} numeric={true} model={fmHewanTernak} setter={setFmHewanTernak} path={['nilaiAset']} style="light"/>
                     </div>
                   </div>
                   <div className="pt-4 text-center text-xs">
@@ -2118,7 +2134,12 @@ const Responden = () => {
 
               <p className="text-xs mt-4"><span className="border-b pb-1">Jika direlokasi, apakah Anda kehilangan pendapatan?</span></p>
               <div className="ml-10 mt-1 p-2 pb-0 border-l">
-                <p className="mb-2"><Select flag={flagger} options={options.optYaTidak} model={resdata} setter={setResdata} path={['terdampakRelokasi']} style="yellow"/></p>
+                <p className="mb-2">
+                  <Select flag={flagger} options={options.optYaTidak} model={resdata} setter={setResdata} path={['terdampakRelokasi']} style="yellow"/>
+                  <span className="ml-2 text-xs">
+                    Jika Ya, tuliskan apa saja dipisah dengan tanda koma (mis: pertanian, jualan, ternak)
+                  </span>
+                </p>
                 <p><Input width="w-4/5" flag={flagger} numeric={false} model={resdata} setter={setResdata} path={['terdampakRelokasiInfo']} style="light"/></p>
               </div>
 

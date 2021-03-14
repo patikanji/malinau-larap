@@ -151,6 +151,7 @@ export const optKepemilikan = [
   ['Milik sendiri', 'Milik sendiri'],
   ['Sewa', 'Sewa'],
   ['Milik pihak lain (non-sewa)', 'Milik pihak lain (non-sewa)'],
+  ['Tanah komunal', 'Tanah komunal'],
 ]
 export const optPernah = [
   ['Sudah pernah', 'Sudah pernah'],
@@ -413,10 +414,11 @@ export const optRelokasi = [
 ]
 export const optPrefRelokasi = [
   ['Daerah hulu'],
-  ['Dekat sungai'],
-  ['[Pilihan lain 1]'],
-  ['[Pilihan lain 2]'],
-  ['[Pilihan lain 3]'],
+  ['Dekat hilir'],
+  ['Bantaran sungai'],
+  ['Perbukitan'],
+  ['Perkotaan'],
+  ['Pedesaan'],
 ]
 export const optYaTidak = [
   ['Ya'],

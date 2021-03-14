@@ -230,6 +230,8 @@ export const Tanaman =  {
   jenis: '',
   lahan: '',
   tegakan: 0,
+  nilaiTegakan: 0,
+  nilaiPanen: 0,
   panen: '',
   sejak: '',
 }
@@ -244,6 +246,7 @@ export const HewanTernak = {
   sejak: 0,
   dipakai: 0,
   dijual: 0,
+  nilaiAset: 0,
   nilaiPerTahun: 0,
 }
 

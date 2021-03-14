@@ -184,14 +184,24 @@ ipcMain.on('save-responden', (event, arg) => {
 
 ipcMain.on('delete-responden', (event, arg) => {
   const key = 'files.' + arg
+  console.log('key', key)
   const file = path.join(DATADIR, arg)
-  fs.unlink(file, function(err) {
-    if (err) {
-      event.returnValue = 'Failed to delete responden.'
+  console.log('File', file)
+  // event.returnValue = { message: 'OK' }
+
+  try {
+    if (fs.existsSync(file)) {
+      fs.unlink(file, function(err) {
+        if (err) {
+          event.returnValue = 'Failed to delete responden.'
+        }
+        store.delete(key)
+        event.returnValue = { message: 'OK' }
+      })
     }
-    store.delete(key)
-    event.returnValue = { message: 'OK' }
-  })
+  } catch (error) {
+    console.log("error", error)
+  }
 
   // let daftar = []
   // const files = store.get('files')
